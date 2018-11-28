@@ -1,0 +1,60 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "",
+        "version": "1.0",
+        "title": "VirtServer additionalProperties test"
+    },
+    "host": "dev-virtserver.swaggerhub.com",
+    "basePath": "/0000/splat240/1.0",
+    "schemes": [
+        "https"
+    ],
+    "paths": {
+        "/dictionaryOfInt": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/objWithAdditionalProps": {
+            "get": {
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "OK",
+                        "schema": {
+                            "type": "object",
+                            "additionalProperties": {
+                                "$ref": "#/definitions/myScheme"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "myScheme": {
+            "type": "object",
+            "properties": {
+                "joel": {
+                    "type": "string"
+                }
+            }
+        }
+    },
+    "x-virt-basepath": "/apis/olensmar/testapi/1.0.0",
+    "x-virt-lazy-initialize": true,
+    "x-virt-defaultResponseType": "application/json"
+}

@@ -696,6 +696,15 @@ public class ExampleBuilderTest {
     }
 
 
+    @Test
+    public void apa(){
+        Swagger swagger = new SwaggerParser().read("./src/test/swagger/apa.json");
+        ResolverUtil resolverUtil = new ResolverUtil();
+        resolverUtil.resolveFully(swagger);
+        String example = getExampleForPath(swagger, "/objWithAdditionalProps");
+        System.out.println(example);
+    }
+
     private String getExampleForPath(Swagger swagger, String s) {
         Response response = swagger.getPath(s).getGet().getResponses().get("200");
         Example example = ExampleBuilder.fromProperty(response.getSchema(), swagger.getDefinitions());
